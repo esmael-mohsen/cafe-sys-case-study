@@ -1,0 +1,12 @@
+flowchart LR
+POS[Flutter Windows POS]
+KDS[Flutter Windows KDS]
+API[Local Dart / Shelf Service]
+DB[(Drift / SQLite)]
+HW[Printer / Drawer / Scanner Ports]
+POS -->|HTTP commands| API
+POS <-->|WebSocket events| API
+KDS -->|HTTP commands| API
+KDS <-->|WebSocket events| API
+API --> DB
+API --> HW

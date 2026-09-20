@@ -1,0 +1,7 @@
+flowchart TB
+DROP[WebSocket Disconnect] --> RETRY[Bounded Reconnect]
+RETRY --> CHECK{Sequence / Epoch Gap?}
+CHECK -->|Yes| RELOAD[Reload State via REST]
+RELOAD --> SNAPSHOT[Replace Visible Snapshot]
+SNAPSHOT --> RESUME[Resume Operations]
+CHECK -->|No| RESUME

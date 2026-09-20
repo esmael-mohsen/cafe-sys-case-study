@@ -1,0 +1,18 @@
+flowchart TB
+POS[POS Windows App]
+KDS[KDS Windows App]
+CLIENT[Typed Local Client]
+CONTRACTS[API Contracts]
+APP[Application Use Cases]
+DOMAIN[Domain Entities / Value Objects]
+SERVER[Local Shelf Service]
+PERSIST[Drift Repositories]
+DB[(SQLite)]
+POS --> CLIENT
+KDS --> CLIENT
+CLIENT --> CONTRACTS
+SERVER --> CONTRACTS
+SERVER --> APP
+APP --> DOMAIN
+APP --> PERSIST
+PERSIST --> DB

@@ -1,0 +1,8 @@
+flowchart LR
+PRODUCT[Product] --> RECIPE[Recipe Ingredients]
+PRODUCT --> ORDER[Order Line Snapshot]
+ORDER --> FIRE[First Fire]
+FIRE --> MOVE[Stock Movement]
+RECIPE --> MOVE
+MOVE --> LEDGER[Inventory Ledger / Cost]
+LEDGER --> STOCK[Current Stock]
